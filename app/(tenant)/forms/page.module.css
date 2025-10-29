@@ -1,0 +1,65 @@
+.formsPage {
+  padding: var(--space-6) 0;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.formsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.formCard {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.formCard:hover {
+  transform: translateY(-2px);
+}
+
+.formCard h3 {
+  margin: 0 0 var(--space-2) 0;
+  color: var(--text-primary);
+}
+
+.description {
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-3) 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.empty {
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 0;
+}
+
+.actions {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-color);
+}
+
+.link {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

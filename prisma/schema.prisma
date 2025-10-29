@@ -1,0 +1,166 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Tenant {
+  id                String          @id @default(cuid())
+  slug              String          @unique
+  name              String
+  supportEmail      String
+  supportPhone      String
+  paymentGatewayKey String
+  bankDetails       String
+  theme             String          // JSON stored as string in SQLite
+  messages          TenantMessage[]
+  userMessages      Message[]
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+}
+
+model User {
+  id                String            @id @default(cuid())
+  email             String            @unique
+  name              String?
+  defaultTenantSlug String?
+  role              String            @default("USER") // USER | ADMIN
+  accounts          Account[]
+  sessions          Session[]
+  userAccountLinks  UserAccountLink[]
+  messages          Message[]
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model UserAccountLink {
+  id                   String   @id @default(cuid())
+  userId               String
+  tenantSlug           String
+  horizonAccountNumber String
+  propertyAddress      String?
+  createdAt            DateTime @default(now())
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, tenantSlug, horizonAccountNumber])
+}
+
+model BalanceSnapshot {
+  id                   String   @id @default(cuid())
+  userId               String
+  tenantSlug           String
+  horizonAccountNumber String
+  amountPence          Int
+  takenAt              DateTime
+  createdAt            DateTime @default(now())
+
+  @@index([userId, tenantSlug, horizonAccountNumber])
+}
+
+model Transaction {
+  id                   String      @id @default(cuid())
+  userId               String
+  tenantSlug           String
+  horizonAccountNumber String
+  externalRef          String?
+  source               String      // BLINK | MRI
+  direction            String      // DEBIT | CREDIT
+  amountPence          Int
+  status               String      // PENDING | CONFIRMED | FAILED
+  occurredAt           DateTime
+  raw                  String?     // JSON stored as string in SQLite
+  createdAt            DateTime    @default(now())
+
+  @@index([userId, tenantSlug])
+  @@index([horizonAccountNumber])
+}
+
+model FormDefinition {
+  id          String   @id @default(cuid())
+  tenantSlug  String?  // null = group level
+  title       String
+  description String?
+  fields      String   // JSON stored as string in SQLite
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model FormSubmission {
+  id               String   @id @default(cuid())
+  userId           String
+  tenantSlug       String
+  formId           String
+  payload          String   // JSON stored as string in SQLite
+  filesPlaceholder String?  // JSON stored as string in SQLite
+  createdAt        DateTime @default(now())
+
+  @@index([userId, tenantSlug])
+  @@index([formId])
+}
+
+model TenantMessage {
+  id         String   @id @default(cuid())
+  tenantSlug String
+  content    String
+  isActive   Boolean  @default(true)
+  updatedAt  DateTime @default(now()) @updatedAt
+  tenant     Tenant   @relation(fields: [tenantSlug], references: [slug], onDelete: Cascade)
+
+  @@index([tenantSlug])
+}
+
+model Message {
+  id             String        @id @default(cuid())
+  userId         String
+  tenantSlug     String
+  subject        String
+  body           String
+  createdAt      DateTime      @default(now())
+  deliveryStatus String        @default("QUEUED") // QUEUED | SENT | FAILED
+  raw            String?       // JSON stored as string in SQLite
+  
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tenant         Tenant        @relation(fields: [tenantSlug], references: [slug], onDelete: Cascade)
+  
+  @@index([userId, tenantSlug])
+}
+

@@ -1,0 +1,60 @@
+.submissionsPage {
+  padding: var(--space-6) 0;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.empty {
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 0;
+}
+
+.link {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.table {
+  overflow-x: auto;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: var(--space-3);
+  border-bottom: 2px solid var(--border-color);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.table td {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.viewLink {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.viewLink:hover {
+  text-decoration: underline;
+}

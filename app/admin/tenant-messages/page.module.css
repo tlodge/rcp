@@ -1,0 +1,92 @@
+.page {
+  padding: var(--space-6) 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.createButton {
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.createButton:hover {
+  background: var(--color-primary-hover);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.messageCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.messageHeader h3 {
+  margin: 0;
+  font-size: var(--font-size-lg);
+}
+
+.badge {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.active {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.inactive {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+}
+
+.content {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.editButton {
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  transition: background 0.2s;
+}
+
+.editButton:hover {
+  background: var(--color-border);
+}

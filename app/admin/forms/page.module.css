@@ -1,0 +1,84 @@
+.page {
+  padding: var(--space-6) 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.formCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.formHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.formHeader h3 {
+  margin: 0 0 var(--space-1) 0;
+  font-size: var(--font-size-lg);
+}
+
+.tenant {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.badge {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.active {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.inactive {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+}
+
+.description {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.editButton {
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  transition: background 0.2s;
+}
+
+.editButton:hover {
+  background: var(--color-border);
+}

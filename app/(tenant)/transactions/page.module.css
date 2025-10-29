@@ -1,0 +1,43 @@
+.transactions {
+  padding: var(--space-6) 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-6);
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2);
+}
+
+.info {
+  padding: var(--space-4);
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+}
+
+.info p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.pending {
+  color: var(--color-warning);
+  font-weight: var(--font-weight-semibold);
+}
+
+.confirmed {
+  color: var(--color-success);
+  font-weight: var(--font-weight-semibold);
+}
+
+.failed {
+  color: var(--color-error);
+  font-weight: var(--font-weight-semibold);
+}

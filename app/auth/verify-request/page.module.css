@@ -1,0 +1,29 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl) 0;
+}
+
+.card {
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+}
+
+.icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-lg);
+}
+
+.description {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.note {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  margin-bottom: 0;
+}

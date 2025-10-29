@@ -1,0 +1,63 @@
+.selector {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-8);
+}
+
+/* Updated to fixed 2x2 grid with better spacing */
+.tenantGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+/* Enhanced card styling with better visual hierarchy and hover effects */
+.tenantCard {
+  padding: var(--space-8);
+  background: white;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tenantCard:hover {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  background: hsl(var(--accent));
+}
+
+.tenantCard h3 {
+  margin: 0 0 var(--space-3) 0;
+  font-size: 1.25rem;
+  color: hsl(var(--foreground));
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.tenantCard p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.6;
+}
+
+/* Added responsive layout for mobile */
+@media (max-width: 640px) {
+  .tenantGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .selector {
+    padding: var(--space-4);
+  }
+}

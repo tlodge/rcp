@@ -1,0 +1,34 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl) 0;
+}
+
+.card {
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+}
+
+.description {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: var(--color-primary-hover);
+  text-decoration: none;
+}

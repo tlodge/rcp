@@ -1,0 +1,33 @@
+.payments {
+  padding: var(--space-6) 0;
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.balance {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin: var(--space-4) 0;
+}
+
+.limits {
+  margin: var(--space-2) 0;
+  color: var(--color-text-secondary);
+}
+
+.muted {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-2);
+}

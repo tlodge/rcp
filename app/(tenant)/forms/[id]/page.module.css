@@ -1,0 +1,14 @@
+.formPage {
+  padding: var(--space-6) 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.formPage h1 {
+  margin-bottom: var(--space-3);
+}
+
+.description {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+}

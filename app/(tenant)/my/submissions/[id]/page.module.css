@@ -1,0 +1,70 @@
+.detailPage {
+  padding: var(--space-6) 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: var(--space-4);
+}
+
+.backLink {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.receipt h1 {
+  margin: 0 0 var(--space-6) 0;
+}
+
+.receipt h2 {
+  margin: var(--space-4) 0 var(--space-3) 0;
+  font-size: 1.25rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.infoRow {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-width: 140px;
+}
+
+.value {
+  color: var(--text-primary);
+}
+
+.divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: var(--space-6) 0;
+}
+
+.payload {
+  background: var(--bg-secondary);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.muted {
+  color: var(--text-secondary);
+  font-style: italic;
+}

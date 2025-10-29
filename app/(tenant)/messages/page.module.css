@@ -1,0 +1,108 @@
+.messagesPage {
+  padding: var(--space-6) 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.newButton {
+  padding: var(--space-2) var(--space-4);
+  background: var(--accent-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.newButton:hover {
+  background: var(--accent-hover);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.empty {
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 0;
+}
+
+.link {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.messagesList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.messageHeader h3 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.status {
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.status.sent {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.queued {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.failed {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.messageBody {
+  color: var(--text-secondary);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.messageDate {
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+  margin: 0;
+}

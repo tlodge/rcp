@@ -1,0 +1,108 @@
+.form {
+  max-width: 500px;
+}
+
+.form h3 {
+  margin-bottom: var(--space-4);
+}
+
+.inputGroup {
+  margin-bottom: var(--space-4);
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-lg);
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-alpha);
+}
+
+.input:disabled {
+  background-color: var(--color-bg-secondary);
+  cursor: not-allowed;
+}
+
+.button {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.button:disabled {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-tertiary);
+  cursor: not-allowed;
+}
+
+.error {
+  color: var(--color-error);
+  margin: var(--space-3) 0;
+  font-size: var(--font-size-sm);
+}
+
+.bankDetails {
+  margin: var(--space-4) 0;
+  padding: var(--space-4);
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.bankDetails h4 {
+  margin-bottom: var(--space-2);
+  color: var(--color-text-primary);
+}
+
+.bankDetails p {
+  margin: var(--space-2) 0;
+  color: var(--color-text-secondary);
+}
+
+.bankInfo {
+  margin: var(--space-3) 0;
+  padding: var(--space-3);
+  background-color: var(--color-bg-primary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.bankInfo pre {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.note {
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  color: var(--color-text-tertiary);
+}

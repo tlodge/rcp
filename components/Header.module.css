@@ -1,0 +1,81 @@
+.header {
+  background-color: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-lg) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.logo:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.button {
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: var(--color-primary-hover);
+  text-decoration: none;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.user form {
+  margin: 0;
+}
+
+.user form .button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.email {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}

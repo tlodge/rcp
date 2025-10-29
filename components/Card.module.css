@@ -1,0 +1,27 @@
+.card {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-primary);
+}
+
+.card p {
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-secondary);
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
