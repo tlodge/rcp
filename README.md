@@ -162,6 +162,19 @@ The application uses Prisma with the following main models:
 - **FormSubmission**: Form submission data
 - **TenantMessage**: Tenant-specific messages
 
+## Deployment
+
+### Deploying to Vercel
+
+For detailed instructions on deploying this application to Vercel, see [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md).
+
+Quick summary:
+1. Set up a PostgreSQL database (recommended: Neon)
+2. Configure environment variables in Vercel
+3. Update Prisma schema for PostgreSQL (or keep SQLite for local, PostgreSQL for prod)
+4. Deploy schema to production database
+5. Configure DNS for multi-tenant subdomains
+
 ## License
 
 MIT
