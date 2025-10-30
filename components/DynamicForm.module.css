@@ -71,7 +71,7 @@
 
 .submitButton {
   padding: var(--space-3) var(--space-6);
-  background: var(--accent-primary);
+  background: var(--color-primary);
   color: white;
   border: none;
   border-radius: var(--radius-md);
@@ -82,7 +82,7 @@
 }
 
 .submitButton:hover:not(:disabled) {
-  background: var(--accent-hover);
+  background: var(--color-primary-hover);
 }
 
 .submitButton:disabled {

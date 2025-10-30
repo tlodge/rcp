@@ -80,8 +80,8 @@ export default function DynamicForm({ formId, fields, tenantSlug, userId }: Dyna
         throw new Error("Failed to submit form")
       }
 
-      const result = await response.json()
-      router.push(`/my/submissions/${result.submissionId}`)
+      await response.json()
+      router.push(`/dashboard?submitted=1`)
     } catch (error) {
       console.error("Form submission error:", error)
       alert("Failed to submit form. Please try again.")

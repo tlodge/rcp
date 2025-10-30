@@ -112,6 +112,17 @@ if (isSQLite) {
 
         return tenant
       },
+      findMany: async ({ where, orderBy }: any = {}) => {
+        // Simple implementation: support optional name ordering asc
+        if (orderBy?.name === "asc") {
+          return await sql`
+            SELECT * FROM "Tenant" ORDER BY "name" ASC
+          `
+        }
+        return await sql`
+          SELECT * FROM "Tenant"
+        `
+      },
     },
     balanceSnapshot: {
       findFirst: async ({ where, orderBy }: any) => {
