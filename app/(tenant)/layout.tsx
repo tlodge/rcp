@@ -3,6 +3,8 @@ import { getCurrentTenant } from "@/lib/tenant"
 import { redirect } from "next/navigation"
 import Header from "@/components/Header"
 
+export const dynamic = "force-dynamic"
+
 export default async function TenantLayout({
   children,
 }: {

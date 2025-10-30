@@ -18,19 +18,21 @@ export default function TenantSelector() {
 
   return (
     <div className={styles.selector}>
-      <div className={styles.tenantGrid}>
+      <ul className={styles.tenantGrid}>
         {TENANTS.map((tenant) => (
-          <button
-            key={tenant.slug}
-            onClick={() => handleSelectTenant(tenant.slug)}
-            className={styles.tenantCard}
-            type="button"
-          >
-            <h3>{tenant.name}</h3>
-            <p>{tenant.description}</p>
-          </button>
+          <li key={tenant.slug} className={styles.tenantItem}>
+            <button
+              onClick={() => handleSelectTenant(tenant.slug)}
+              className={styles.tenantCard}
+              type="button"
+              aria-label={`${tenant.name} – ${tenant.description}`}
+            >
+              <h3>{tenant.name}</h3>
+              <p>{tenant.description}</p>
+            </button>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   )
 }

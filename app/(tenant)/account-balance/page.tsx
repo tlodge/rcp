@@ -7,7 +7,7 @@ import Link from "next/link"
 import Breadcrumbs from "@/components/Breadcrumbs"
 import styles from "./page.module.css"
 
-export default async function AccountBalancePage() {
+export default async function AccountBalancePage({ searchParams }: { searchParams?: { status?: string } }) {
   const session = await getSession()
   const tenant = await getCurrentTenant()
   const tenantSlug = await getCurrentTenantSlug()
@@ -107,11 +107,18 @@ export default async function AccountBalancePage() {
     balancePounds = (balancePence / 100).toFixed(2)
   }
 
+  const status = (await searchParams)?.status
+
   return (
     <div className="container">
       <Breadcrumbs items={[{ label: "Dashboard", href: "/dashboard" }, { label: "Account Balance" }]} />
 
       <div className={styles.accountBalance}>
+        {status && (
+          <div className={`${styles.alert} ${status === "success" ? styles.alertSuccess : styles.alertError}`}>
+            {status === "success" ? "Payment successful." : "Payment failed. Please try again or contact support."}
+          </div>
+        )}
         <div className={styles.header}>
           <div>
             <h1>Account Balance</h1>

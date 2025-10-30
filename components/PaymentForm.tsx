@@ -63,22 +63,27 @@ export default function PaymentForm({ accountNumber, tenantSlug, bankDetails }: 
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <h3>Enter Payment Amount</h3>
+      <h3>Payment amount</h3>
+      <p className={styles.helper}>Securely process your payment on the next step.</p>
 
       <div className={styles.inputGroup}>
         <label htmlFor="amount">Amount (£)</label>
-        <input
-          id="amount"
-          type="number"
-          step="0.01"
-          min={MIN_AMOUNT}
-          max={MAX_AMOUNT}
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          placeholder="0.00"
-          className={styles.input}
-          disabled={loading}
-        />
+        <div className={styles.currencyField}>
+          <span className={styles.prefix}>£</span>
+          <input
+            id="amount"
+            type="number"
+            step="0.01"
+            min={MIN_AMOUNT}
+            max={MAX_AMOUNT}
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            placeholder="0.00"
+            className={styles.input}
+            disabled={loading}
+            inputMode="decimal"
+          />
+        </div>
       </div>
 
       {error && <p className={styles.error}>{error}</p>}
@@ -97,7 +102,7 @@ export default function PaymentForm({ accountNumber, tenantSlug, bankDetails }: 
       )}
 
       <button type="submit" className={styles.button} disabled={!isValid || loading}>
-        {loading ? "Processing..." : "Pay Now"}
+        {loading ? "Processing..." : "Continue"}
       </button>
     </form>
   )

@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
 import Card from "@/components/Card"
 import styles from "./page.module.css"
@@ -11,6 +11,8 @@ export default function EditTenantMessagePage({ params }: { params: { id: string
   const [message, setMessage] = useState<any>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
+  const editorRef = useRef<HTMLDivElement | null>(null)
+  const hiddenInputRef = useRef<HTMLTextAreaElement | null>(null)
 
   useEffect(() => {
     fetch(`/api/admin/tenant-messages/${params.id}`)
@@ -28,6 +30,11 @@ export default function EditTenantMessagePage({ params }: { params: { id: string
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSaving(true)
+
+    // Sync editor HTML to hidden textarea before submit
+    if (hiddenInputRef.current && editorRef.current) {
+      hiddenInputRef.current.value = editorRef.current.innerHTML
+    }
 
     const formData = new FormData(e.currentTarget)
 
@@ -73,7 +80,33 @@ export default function EditTenantMessagePage({ params }: { params: { id: string
 
           <div className={styles.field}>
             <label htmlFor="content">Message Content</label>
-            <textarea id="content" name="content" rows={4} defaultValue={message.content} required />
+            <div className={styles.toolbar}>
+              <button type="button" onClick={() => document.execCommand("bold")}>Bold</button>
+              <button type="button" onClick={() => document.execCommand("italic")}>Italic</button>
+              <button type="button" onClick={() => document.execCommand("underline")}>Underline</button>
+              <button type="button" onClick={() => document.execCommand("insertUnorderedList")}>• List</button>
+              <button type="button" onClick={() => document.execCommand("insertOrderedList")}>1. List</button>
+              <button
+                type="button"
+                onClick={() => {
+                  const url = prompt("Enter URL") || ""
+                  if (url) document.execCommand("createLink", false, url)
+                }}
+              >
+                Link
+              </button>
+              <button type="button" onClick={() => document.execCommand("removeFormat")}>Clear</button>
+            </div>
+            <div
+              id="editor"
+              ref={editorRef}
+              className={styles.editor}
+              contentEditable
+              suppressContentEditableWarning
+              dangerouslySetInnerHTML={{ __html: message.content || "" }}
+            />
+            {/* Hidden input to carry HTML to the server */}
+            <textarea ref={hiddenInputRef} id="content" name="content" defaultValue={message.content} hidden />
           </div>
 
           <div className={styles.field}>

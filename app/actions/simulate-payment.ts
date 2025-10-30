@@ -34,8 +34,8 @@ export async function simulatePayment(externalRef: string, success: boolean) {
       throw new Error("Webhook failed")
     }
 
-    // Redirect to transactions page with status
-    redirect(`/transactions?status=${success ? "success" : "failed"}`)
+    // Redirect back to the account balance page with status
+    redirect(`/account-balance?status=${success ? "success" : "failed"}`)
   } catch (error) {
     console.error("[v0] Payment simulation error:", error)
     throw error

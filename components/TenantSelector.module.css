@@ -1,43 +1,79 @@
 .selector {
   width: 100%;
-  max-width: 900px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: var(--space-8);
+  padding: var(--space-10);
 }
 
-/* Updated to fixed 2x2 grid with better spacing */
+/* Responsive, balanced grid */
 .tenantGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-6);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
 
-/* Enhanced card styling with better visual hierarchy and hover effects */
+/* Grid item wrapper to center the card while keeping its contents left-aligned */
+.tenantItem {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* Elevated card with refined hierarchy */
 .tenantCard {
-  padding: var(--space-8);
-  background: white;
+  position: relative;
+  padding: 0px 20px;
+  background: #efefef;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
   text-align: left;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  min-height: 140px;
+  appearance: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  min-height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  row-gap: var(--space-2);
+  width: 100%;
+  max-width: 300px;
 }
 
 .tenantCard:hover {
   border-color: hsl(var(--primary));
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+  transform: translateY(-1px);
   background: hsl(var(--accent));
+}
+
+.tenantCard:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+.tenantCard::after {
+  content: "";
+  position: absolute;
+  right: var(--space-6);
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M8.12 19.88L16 12L8.12 4.12L9.53 2.71L19 12.17L9.53 21.64L8.12 20.23Z"/></svg>') center / contain no-repeat;
+  background-color: hsl(var(--muted-foreground));
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.tenantCard:hover::after {
+  transform: translateY(-50%) translateX(2px);
+  background-color: hsl(var(--primary));
 }
 
 .tenantCard h3 {
   margin: 0 0 var(--space-3) 0;
-  font-size: 1.25rem;
+  font-size: 1.1875rem;
   color: hsl(var(--foreground));
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -50,14 +86,15 @@
   line-height: 1.6;
 }
 
-/* Added responsive layout for mobile */
+/* Fixed two-column layout on tablet and up */
+
 @media (max-width: 640px) {
   .tenantGrid {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: 20px;
   }
 
   .selector {
-    padding: var(--space-4);
+    padding: var(--space-6);
   }
 }

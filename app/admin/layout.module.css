@@ -1,43 +1,58 @@
 .layout {
   display: grid;
-  grid-template-columns: 250px 1fr;
-  gap: var(--space-6);
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-14);
   padding: var(--space-6) 0;
   min-height: calc(100vh - 200px);
 }
 
 .sidebar {
-  padding: var(--space-4);
+  padding: 2rem 1.5rem 1.5rem 2rem; /* top right bottom left */
   background: var(--color-bg-secondary);
   border-radius: var(--radius-lg);
-  height: fit-content;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  box-shadow: 10px 0 24px -18px rgba(0, 0, 0, 0.25);
 }
 
 .sidebar h2 {
-  margin: 0 0 var(--space-4) 0;
+  margin: 0 0 1rem 0; /* space below sidebar title */
   font-size: var(--font-size-lg);
+  letter-spacing: -0.01em;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 0.5rem;
+  padding-top: 0.75rem; /* tighter space below title */
+  padding-left: 0; /* align items with sidebar title */
 }
 
 .navLink {
-  padding: var(--space-2) var(--space-3);
+  display: block;
+  padding: 0rem 1rem; /* reduced vertical spacing */
+  padding-left: 0; /* align text with "Admin" heading */
   border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--color-text);
-  transition: background 0.2s;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+  white-space: nowrap; /* prevent wrapping (e.g., Tenant Messages) */
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.navLink:hover {
+.navLink:hover,
+.navLink:focus-visible {
   background: var(--color-bg);
+  outline: none;
 }
 
 .content {
   min-width: 0;
+  padding-left: 2rem;
+  padding-top: 2rem;
 }
 
 /* Added styles for access denied page */

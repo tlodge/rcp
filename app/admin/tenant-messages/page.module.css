@@ -1,12 +1,12 @@
 .page {
-  padding: var(--space-6) 0;
+  padding: 0;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--space-6);
+  margin-bottom: 1.5rem; /* fixed spacing below title row */
 }
 
 .header h1 {
@@ -30,7 +30,7 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: 1.5rem; /* fixed spacing */
 }
 
 .messageCard {

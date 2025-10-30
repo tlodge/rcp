@@ -3,6 +3,8 @@ import { getPrisma } from "@/lib/prisma"
 import Card from "@/components/Card"
 import styles from "./page.module.css"
 
+export const dynamic = "force-dynamic"
+
 export default async function AdminFormsPage() {
   const prisma = getPrisma()
   const forms = await prisma.formDefinition.findMany({

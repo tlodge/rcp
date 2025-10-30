@@ -9,7 +9,7 @@
 
 /* Added title styling for better visual hierarchy */
 .title {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: var(--space-4);
@@ -21,9 +21,9 @@
   text-align: center;
   color: hsl(var(--muted-foreground));
   font-size: 1.125rem;
-  margin-bottom: var(--space-8);
+  margin-bottom: 40px;
   max-width: 600px;
   line-height: 1.6;
 }
 
-/* Removed unused grid and card styles */
+

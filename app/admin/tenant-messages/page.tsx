@@ -28,7 +28,7 @@ export default async function TenantMessagesPage() {
                   {message.isActive ? "Active" : "Inactive"}
                 </span>
               </div>
-              <p className={styles.content}>{message.content}</p>
+              <div className={styles.content} dangerouslySetInnerHTML={{ __html: message.content || "" }} />
               <div className={styles.actions}>
                 <Link href={`/admin/tenant-messages/${message.id}/edit`} className={styles.editButton}>
                   Edit

@@ -1,6 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { verifyEmailWithMRI } from "@/lib/mri"
 
+export const dynamic = "force-dynamic"
+
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
