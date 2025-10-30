@@ -17,8 +17,14 @@ export async function simulatePayment(externalRef: string, success: boolean) {
     // Create signature (simulating Blink's signature)
     const signature = await createSignature(JSON.stringify(payload), webhookSecret)
 
-    // Get the base URL for the webhook call
-    const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000"
+    // Resolve a deploy-safe base URL for the webhook call
+    const vercelUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined
+    const baseUrl =
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      process.env.SITE_URL ||
+      process.env.NEXTAUTH_URL ||
+      vercelUrl ||
+      "http://localhost:3000"
 
     // Call our webhook endpoint (simulating Blink calling us)
     const response = await fetch(`${baseUrl}/api/webhooks/blink`, {
