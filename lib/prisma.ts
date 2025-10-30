@@ -155,7 +155,7 @@ if (isSQLite) {
           params.push(take)
         }
 
-        return await sql(query, params)
+        return await sql.unsafe(query, params)
       },
       findFirst: async ({ where }: any) => {
         const result = await sql`
